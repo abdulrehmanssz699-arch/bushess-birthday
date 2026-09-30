@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Bushesssss 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#c9577a;--pink:#f6d5df;--cream:#fff8f1;--ink:#4a2a35;--gold:#e8b445;--leaf:#8aa779;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.75 'Nunito',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;margin:0 0 .6em;line-height:1.15}
+h2{font-size:clamp(30px,8vw,48px);color:var(--rose);text-align:center}
+.script{font-family:'Great Vibes',cursive;font-weight:400}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+section{padding:72px 22px;max-width:760px;margin:auto;position:relative}
+.full{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.2s ease,transform 1.2s ease}.rv.in{opacity:1;transform:none}
+.card{background:rgba(255,255,255,.72);backdrop-filter:blur(8px);border:1px solid #f3d3dc;border-radius:22px;padding:24px;box-shadow:0 10px 40px rgba(201,87,122,.12);margin:18px 0}
+.fl{text-align:center;font-size:30px;letter-spacing:10px;opacity:.85;margin:6px 0 18px}
+.sub{text-align:center;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:21px}
+/* lock */
+#lock{position:fixed;inset:0;z-index:40;background:radial-gradient(circle at 50% 30%,#ffe3ea,#f7c6d4 55%,#e8a7bd);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity 2s ease}
+#lock h1{font-size:clamp(34px,10vw,58px);color:#8e2c4f}
+#cd{display:flex;gap:10px;margin:22px 0;justify-content:center}
+#cd div{background:rgba(255,255,255,.6);border-radius:16px;padding:12px 6px;min-width:66px;box-shadow:0 0 30px rgba(255,255,255,.7)}
+#cd b{display:block;font:600 34px 'Cormorant Garamond',serif;color:#8e2c4f}#cd small{font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.tiny{font-size:14px;opacity:.8}
+#stage{display:none}
+/* hero + cake */
+.hero{background:radial-gradient(circle at 50% 0,#fff,#fde6ec 60%,var(--cream))}
+.hero h1{font-size:clamp(30px,9vw,54px);color:#8e2c4f;letter-spacing:2px}
+.big18{font:400 clamp(110px,34vw,200px)/1 'Great Vibes',cursive;background:linear-gradient(135deg,#c9577a,#e8b445);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(232,180,69,.45));margin:0}
+.flame{transform-origin:50% 100%;animation:fl 1.4s ease-in-out infinite alternate}@keyframes fl{to{transform:scale(1.12,.92) rotate(2deg)}}
+.out .flame{display:none}.smoke{opacity:0}.out .smoke{animation:sm 3s ease-out forwards}@keyframes sm{0%{opacity:.7;transform:translateY(0)}100%{opacity:0;transform:translateY(-40px)}}
+.btn{border:0;background:linear-gradient(135deg,#d96a8b,#c9577a);color:#fff;border-radius:40px;padding:14px 28px;font:600 16px 'Nunito';box-shadow:0 0 22px rgba(201,87,122,.45);cursor:pointer;min-height:48px;margin-top:14px}
+/* timeline */
+.tl{border-left:2px dashed #e5a9bb;margin-left:10px;padding-left:22px}.tl .card{position:relative}.tl .card:before{content:"🌸";position:absolute;left:-40px;top:16px;font-size:20px;background:var(--cream);border-radius:50%}
+.date{display:inline-block;background:var(--rose);color:#fff;border-radius:30px;padding:2px 14px;font-size:14px;margin-bottom:8px}
+.meet{text-align:center;background:linear-gradient(160deg,#fff,#ffe9ef)}.meet .d{font:600 64px 'Cormorant Garamond';color:var(--rose);line-height:1}
+.heart{display:inline-block;animation:hb 2.6s ease-in-out infinite}@keyframes hb{50%{transform:scale(1.15)}}
+/* loves */
+.loves{display:grid;grid-template-columns:1fr 1fr;gap:12px}.loves .card{margin:0;text-align:center;padding:18px 10px}.loves .e{font-size:38px}
+.loves .card.w{grid-column:1/-1}
+/* gallery */
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 24px;margin:0 -22px;padding-inline:22px;-webkit-overflow-scrolling:touch}
+.pol{flex:0 0 220px;background:#fff;padding:12px 12px 16px;border-radius:6px;box-shadow:0 8px 26px rgba(0,0,0,.14);scroll-snap-align:center;transition:transform .5s}
+.pol:nth-child(odd){transform:rotate(-2deg)}.pol:nth-child(even){transform:rotate(2deg)}.pol:hover,.pol:active{transform:scale(1.05)}
+.pol .ph{aspect-ratio:4/5;background:linear-gradient(145deg,#fde6ec,#fff3d6);display:flex;align-items:center;justify-content:center;font-size:13px;color:#b07a8a;text-align:center;overflow:hidden}
+.pol img{width:100%;height:100%;object-fit:contain}.pol p{margin:10px 0 0;font:italic 17px 'Cormorant Garamond';text-align:center;line-height:1.3}
+/* dua */
+.dua{max-width:none;background:radial-gradient(circle at 70% 10%,#3a2a55,#1d1630 60%,#120d20);color:#f3e9f5;overflow:hidden;padding:90px 22px}
+.dua>div{max-width:700px;margin:auto}.dua h2{color:#f4cfe0;font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(40px,11vw,62px)}
+.moon{font-size:54px;text-align:center;filter:drop-shadow(0 0 22px #ffeaa8);animation:fl 5s ease-in-out infinite alternate}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 20% 30%,#fff,transparent),radial-gradient(1px 1px at 60% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 80% 60%,#fff,transparent),radial-gradient(1px 1px at 35% 75%,#fff,transparent),radial-gradient(1px 1px at 90% 88%,#fff,transparent);animation:tw 5s infinite alternate}@keyframes tw{to{opacity:.4}}
+.dua .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);box-shadow:none}
+.letter{background:#fffdf9;border-radius:6px;padding:30px 24px;box-shadow:0 12px 40px rgba(0,0,0,.1);border-top:6px solid var(--pink)}.letter p{margin:0 0 1em}
+.fut{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -22px;padding:8px 22px 20px}
+.fut div{flex:0 0 170px;aspect-ratio:3/4;border:2px dashed #e5a9bb;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;scroll-snap-align:center;background:rgba(255,255,255,.5);font:italic 19px/1.3 'Cormorant Garamond'}
+.fut span{font-size:34px;margin-bottom:6px}
+.final{background:linear-gradient(180deg,var(--cream),#fde1ea 50%,#f7c6d4);max-width:none;text-align:center}.final>div{max-width:700px;margin:auto}
+.final h2.s{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(40px,11vw,64px)}
+#mp{position:fixed;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:60;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-radius:30px;padding:6px 14px 6px 6px;box-shadow:0 4px 16px rgba(0,0,0,.12);font-size:13px;border:0;color:var(--ink);min-height:44px;display:none}
+#mp i{width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal}
+.eq{display:none;gap:2px;align-items:flex-end;height:14px}.eq s{width:3px;background:var(--rose);animation:eq .9s infinite alternate}.eq s:nth-child(2){animation-delay:.2s}.eq s:nth-child(3){animation-delay:.4s}@keyframes eq{from{height:3px}to{height:14px}}
+.playing .eq{display:flex}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style></head><body>
+<canvas id="fx"></canvas>
+<button id="mp" aria-label="Music"><i id="pi">▶</i><span>Until I Found You</span><span class="eq"><s></s><s></s><s></s></span></button>
+<audio id="au" loop preload="none"></audio>
+
+<div id="lock">
+  <div style="font-size:34px">🌸</div>
+  <h1 class="script">Happy Birthday My Bushesssss… 🌸</h1>
+  <p class="sub">Something very special is waiting for you…</p>
+  <div id="cd"></div>
+  <p class="sub">Come back when the clock strikes 12… 🤍</p>
+  <p class="tiny">Don’t peek, Bushessss… I made this just for you.</p>
+</div>
+
+<div id="stage">
+  <section class="full hero">
+    <p class="sub" id="pre"></p>
+    <h1>HAPPY BIRTHDAY MY BUSHESSSSS ❤️</h1>
+    <p class="big18">18 ✨</p>
+    <p class="script" style="font-size:32px;color:var(--rose);margin:0 0 10px">Welcome to 18, Bushesssss 🌸</p>
+    <svg id="cake" viewBox="0 0 300 250" width="290" style="max-width:88%;cursor:pointer" role="button" aria-label="Blow the candles">
+      <ellipse cx="150" cy="232" rx="125" ry="10" fill="#e9c7d1"/>
+      <rect x="40" y="150" width="220" height="80" rx="14" fill="#fbe0e8"/><rect x="40" y="150" width="220" height="26" rx="13" fill="#e77a9b"/>
+      <path d="M40 170q20 22 40 0t40 0 40 0 40 0 40 0 20 8v-10H40z" fill="#fff"/>
+      <text x="150" y="213" text-anchor="middle" font-family="Great Vibes,cursive" font-size="34" fill="#a93b60">BUSHESSS</text>
+      <g id="cn"></g>
+    </svg>
+    <p class="tiny" id="hint">Tap the candles, Bushesssss 🕯️</p>
+    <button class="btn" id="go" style="display:none">Ap ke liye kuch hai… 💌</button>
+  </section>
+  <div id="main" style="display:none"><div id="mainc"></div></div>
+</div>
+
+<template id="tpl">
+<section><div class="fl rv">🌹 🌻 🌸</div><h2 class="rv">Things Bushesssss Loves 🌸</h2>
+<div class="loves rv">
+<div class="card"><div class="e">🌹</div><b>Roses</b><br>Her favourite flower</div>
+<div class="card"><div class="e">🌻</div><b>Sunflowers</b><br>Another one she loves</div>
+<div class="card"><div class="e">🍜</div><b>Noodles</b><br>Always the answer</div>
+<div class="card"><div class="e">🌅</div><b>Sunrise by the beach</b><br>One day, InshaAllah</div>
+<div class="card w"><svg viewBox="0 0 120 100" width="120"><ellipse cx="60" cy="88" rx="38" ry="7" fill="#eadde1"/><path d="M34 40L30 10l20 14zM86 40l4-30-20 14z" fill="#fff" stroke="#e2cdd4" stroke-width="2"/><path d="M40 22l-2-6 7 5zM80 22l2-6-7 5z" fill="#f6b9c9"/><ellipse cx="60" cy="62" rx="32" ry="26" fill="#fff" stroke="#e2cdd4" stroke-width="2"/><ellipse cx="60" cy="48" rx="28" ry="24" fill="#fff"/><circle cx="49" cy="48" r="3.2" fill="#4a2a35"/><circle cx="71" cy="48" r="3.2" fill="#4a2a35"/><path d="M57 55h6l-3 4z" fill="#f29bb3"/><path d="M60 59q-5 5-9 2M60 59q5 5 9 2" stroke="#b98a97" fill="none" stroke-width="1.5"/></svg><br><b>Nandu 🐱</b> — a little white prince, about 2 months old.<br><span class="tiny">Nandu deserves his own mention because he is basically part of Bushess’s little world now.</span></div>
+</div></section>
+
+<section><h2 class="rv">How It All Started…</h2>
+<div class="tl">
+<div class="card rv"><span class="date">Ramadan · 9 March</span><h3>The Beginning</h3>Ramadan ka mahina tha, or maine cutu ko ek request bheji.(wo alag baat hai accept krkai following sai nikl diya) lakin Itni chhoti si cheez thi, or ap ko andaza bhi nahi hoga ke wohi ek request poori kahani ka pehla page ban jayegi.</div>
+<div class="card rv"><span class="date">The funny part 😂</span><h3>“Mommy” and the double removal</h3>Shuru mein ap ne mujhe daant diya tha, kyun ke maine ap ko “Mommy” bol diya tha. or mujhe do dafa following se remove bhi kar diya. or ab dekhein wohi larki jisne mujhe remove kiya, aaj meri Bushesssss hai. Ab hum dono ye yaad kar ke hanste hain or mera mazak bhi banta hai. </div>
+<div class="card rv meet"><span class="date">Thursday, 4 June</span><div class="d">4 <span class="heart">🤍</span> June</div><h3>The Day We Finally Met</h3>Sweet Cream Ice Cream Shop<br><span class="tiny">Sweet Cream, where I saw you for the first time…
+just a simple moment, but somehow, it became the beginning of something beautiful. ✨
+</span></div>
+<div class="card rv"><h3>A Few More Memories…</h3>🌸 <b>4 June</b> — Sweet Cream, pehli mulaqat<br>🌸 <b>22 August</b> — Moive dekhi sath mein<br>🌸 <b>27 September</b> — Third time Cutu ka cake cut kiya, And every time, my heart whispered just a little longer 🤍</div>
+</div></section>
+
+<section><h2 class="rv">Our Little Gallery</h2><p class="sub rv">Swipe karein →</p><div class="gal rv" id="gal"></div></section>
+
+<section><h2 class="rv">What I Love About Us ❤️</h2>
+<div class="card rv">
+  <p>
+    Hum ek doosre ko bohat achi tarah samajhte hain jbh humesha 
+    smjhyeinaga aik dusray ko Baat kahe baghair bhi ek doosre ki 
+    feelings samajh lete hain, aur dono ko ek doosre ki
+    sach mein fikar krtay hai.
+  </p>
+
+  <p>
+    I love how we can be completely ourselves with each other —
+    <span class="highlight">no pretending, no pressure, bas apne jaisay.</span>
+    Kabhi words ki zarurat nahi hoti, sometimes a simple look, a small
+    gesture, ya bas ek <em>“kya hua?”</em> bhi bohat kuch keh deta hai.
+  </p>
+
+  <p>
+    I love that we don't just share the happy moments, we stay through
+    the difficult ones too. Jab things feel heavy, we try to understand
+    each other instead of simply walking away.
+  </p>
+
+  <p>
+    Or sabse beautiful cheez shayad yeh hai ke hum dono ek doosre ko
+    change karne ki koshish nahi karte, we just want to see each other
+    grow. Apni apni dreams, apni struggles, apni life —
+    <span class="highlight">but somehow, we still find our way back to each other.</span>
+  </p>
+
+  <p>
+    This Bond wasn't built overnight. It grew slowly —
+    through countless conversations, little memories, and all the
+    moments where we took the time to understand each other.
+    <span class="highlight">
+      Baatein karte karte, yaadein banate banate, or ek doosre ko samajhte samajhte,
+      it became something genuinely special Muwah.
+    </span>
+  </p>
+
+  <p>
+    Is Bond mein mujhe sukoon milta hai, trust milta hai, care milti hai,
+    or sabse importantly, ek doosre ke dreams ko support karne ka space milta hai.
+    We both have our own lives, our own goals and our own struggles,
+    but I love that we can still be there for each other through all of it.
+  </p>
+
+  <p>
+    We're not just making memories together —
+    <span class="highlight">we're growing together too.</span>
+    And honestly, watching us grow, understand, support and care for each other
+    is something I find incredibly beautiful.
+  </p>
+
+  <div class="love-quote">
+    <p>Maybe that's what I love most about us —</p>
+    <p>it never feels like I have to explain my heart to you.</p>
+    <strong>Somehow, you already understand. 🤍</strong>
+  </div>
+</div>
+</section>
+<section class="dua"><div class="stars"></div><div>
+<div class="moon">🌙</div><h2 class="rv">A Dua I Once Made…</h2>
+<div class="card rv">Jab main Umrah par gaya tha, maine Allah se dua ki thi ke mujhe aisa koi de jo mujhe samjhe, jo kuch cheezon mein mujh jaisa ho, jo meri tarahan mujhai khonay sai daray or jiska dil bohat care karne wala ho, or jo mujhe judge karne ke bajaye samjhe.</div>
+<div class="card rv">Umrah ke baad meri mulaqat Bushra se hui.<br><br>MashaAllah… im thankfull to Allah Kabhi kabhi ap dua karte hain or baad mein peeche mud kar dekhte hain to realize hota hai ke zindagi kitni khoobsurati se chali jo manga usay acha allah na diya 🤍</div>
+<p class="fl" style="margin-top:30px">🌹 🌙 🌻</p></div></section>
+
+<section><h2 class="rv">For Bushra…</h2>
+<div class="letter rv">
+<p>Bushra,</p>
+<p>Bushra,</p>
+
+<p><strong>Happy 18th Birthday, Bushesssss 🤍🎂</strong></p>
+
+<p>
+  Mujhe ap par genuinely bohat proud hai, sach mein. Ap ke dreams matter karte hain,
+  ap ki mehnat matter karti hai, aur main dil se chahta hoon ke ap apne har dream
+  tak pohanchein or life mein bohat successful hon.
+</p>
+
+<p>
+  Abhi hum dono ka focus mehnat karna, apni studies/career banana or apne goals
+  achieve karna hai. or InshaAllah, future mein jab life thori settle ho, toh bohat
+  saari beautiful memories saath banayeinge — random outings, stupid si fights 😂,
+  endless conversations, or woh choti choti cheezein jo baad mein sabse zyada
+  yaad aati hain.
+</p>
+
+<p>
+  Aur haan, ek chhoti si hope aur dua bhi hai…
+  <strong>InshaAllah jab hum apne apne khwab poore kar lein, toh shayad ek din
+  hum nikah bhi kar sakein.</strong> 🤍
+  Ye koi pressure nahi hai, bas ek khoobsurat umeed hai jo dil mein
+  achi lagti hai Soch kr InshaAllah.
+</p>
+
+<p>
+  Aur Bushesssss, please kabhi ye mat sochna ke ap ko meri mehnat, care ya love ko
+  mere barabar match karna hai. <strong>Meri care love se aati hai, expectation
+  se nahi.</strong> Ap jitna kar sakti hain, jis tarah kar sakti hain, woh mere
+  liye enough hai. or apnay already mera liya bhout kuch kiya hai muwah
+  Mujhe bas ap ko khush, peaceful or successful dekhna hai.
+</p>
+
+<p>
+  So please apna khayal rakhein, apne dreams ke peeche jaein, or haan…
+  <strong>18 ki ho gayi hain ab, thori responsible bhi ho jayein please 😭😂
+  (joke hai cutu)</strong>
+  <br>
+  Cutu mera bhout responsible hai MASHAALLAH
+  (ragebait krnai mein maza ata apun ko😭)
+</p>
+
+<p>
+  <strong>May Allah ap ko hamesha khush rakhein, ap ke har ache khwab ko poora
+  karein, or ap ki life ko bohat khoobsurat banayein. Ameen. 🤍</strong>
+</p>
+
+<p>
+  Aur yaad rakhein…<br>
+  <strong>Rehman hamesha ap ke saath hai. ❤️</strong>
+</p>
+<p style="text-align:right">— Rehman</p></div></section>
+
+<section><h2 class="rv">One More Dua For You…</h2>
+<div class="card rv" style="text-align:center">Ap ki sehat mere liye sab se zyada matter karti hai. Please theek se khana khayein, rest karein, paani piyein aur apna khayal rakhein.<br><br><b class="script" style="font-size:30px;color:var(--rose);line-height:1.4">Allah apko sehat, sukoon, strength aur khushi de. Ameen. 🤍</b></div></section>
+
+<section><h2 class="rv">Your Dreams Matter ✨</h2>
+<div class="card rv" style="text-align:center">Ap apnay saaray khwab poore karein.<br>Studies, career, success, happiness, aur woh sab jo sirf ap ke apne dreams hain.<br><br><b>Abhi mehnat ka waqt hai.</b><br>Hum dono apnay dreams ke liye mehnat kareinge, InshaAllah.</div></section>
+
+<section><h2 class="rv">For Everything Still Ahead… 🌙</h2>
+<div class="card rv">Abhi hamein bohat kuch karna hai: successful hona, dreams poore karna, nayi memories banana, zindagi enjoy karna, khoobsurat jagahein dekhna, aur saath mein grow karte rehna.<br><br><i>Aur InshaAllah, jab waqt sahi hoga, apnay future ka woh chapter bhi likheinge jiska hum dua mein zikr karte hain.</i></div></section>
+
+<section><h2 class="rv">This Isn't The End Of Our Memories…</h2><div class="fut rv">
+<div><span>🌅</span>Another sunset</div><div><span>🌊</span>Another beach day</div><div><span>🍦</span>Another ice cream date</div><div><span>😂</span>Another random laugh</div><div><span>📸</span>Another photo together</div><div><span>🤍</span>Another memory we haven't made yet…</div></div></section>
+
+<section class="final"><div>
+<h2 class="s rv">Happy 18th Birthday, My Bushesssss 🌸</h2>
+<p class="rv">I hope 18 brings ap the happiness, success, peace, health and beautiful moments ap deserve.</p>
+<p class="rv">Ap apnay saaray khwab poore karein, Allah apko har qadam par kamyabi de, apko sehat de, sukoon de aur hamesha khush rakhe. Ameen.</p>
+<p class="rv">Or InshaAllah, aaj se le kar bohat saari birthdays tak, or aur bhi bohat si memories banayeinge.</p>
+<h2 class="s rv" style="margin-top:40px">Happy Birthday, Bushesssss ❤️</h2><p class="rv sub">— Rehman</p>
+<p class="fl rv" style="margin-top:40px">🌹 🌻 🌸 🌻 🌹</p>
+<svg viewBox="0 0 120 100" width="90" class="rv"><path d="M34 40L30 10l20 14zM86 40l4-30-20 14z" fill="#fff" stroke="#e2cdd4" stroke-width="2"/><ellipse cx="60" cy="62" rx="32" ry="26" fill="#fff" stroke="#e2cdd4" stroke-width="2"/><ellipse cx="60" cy="48" rx="28" ry="24" fill="#fff"/><circle cx="49" cy="48" r="3.2" fill="#4a2a35"/><circle cx="71" cy="48" r="3.2" fill="#4a2a35"/><path d="M57 55h6l-3 4z" fill="#f29bb3"/></svg>
+<p class="sub rv">A little world I made for the girl who means more to me than words can say.🤍</p>
+<h2 class="script rv" style="font-size:40px;color:var(--rose)">Happy Birthday, Bushesssss.</h2></div></section>
+</template>
+
+<script>
+// ---- EDIT HERE: replace image: "" with your photo path/URL or data URI ----
+const photos=[
+  {image:"photos/1.jpeg",caption:"Sweet Cream, 4 June"},
+  {image:"photos/2.jpeg",caption:"The first time we met"},
+  {image:"photos/3.jpeg",caption:"August"},
+  {image:"photos/4.jpeg",caption:"September, round one"},
+  {image:"photos/5.jpeg",caption:"September, round two"},
+  {image:"photos/6.jpeg",caption:"September, round three"}
+];
+const AUDIO_SRC="Until I Found You.mp3"; // 
+// Oct 1, 2026 00:00 PKT (UTC+5) = Sep 30, 19:00 UTC
+const TARGET=Date.UTC(2026,8,30,19,0,0);
+const $=s=>document.querySelector(s);const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const preview=location.search.includes('preview');
+/* particles */
+const cv=$('#fx'),cx=cv.getContext('2d');let P=[],amb=false,W,H;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+const cols=['#f4a9bf','#e77a9b','#fff','#e8b445','#f9d7e0'];
+function add(t,x,y,vx,vy){P.push({t,x,y,vx,vy,r:4+Math.random()*7,a:Math.random()*6,va:(Math.random()-.5)*.06,c:cols[Math.random()*cols.length|0],l:0})}
+function burst(n){if(RM)n=n/4;for(let i=0;i<n;i++)add('c',W/2,H*.45,(Math.random()-.5)*14,-Math.random()*13-3)}
+function petals(n){for(let i=0;i<n;i++)add('p',Math.random()*W,-20,(Math.random()-.3)*.8,.6+Math.random()*1.2)}
+function hearts(n){for(let i=0;i<n;i++)add('h',Math.random()*W,H+10,(Math.random()-.5)*.5,-.6-Math.random())}
+function heartPath(r){cx.beginPath();cx.moveTo(0,r*.4);cx.bezierCurveTo(-r,-r*.4,-r*.4,-r,0,-r*.3);cx.bezierCurveTo(r*.4,-r,r,-r*.4,0,r*.4);cx.fill()}
+function loop(){cx.clearRect(0,0,W,H);
+ if(amb&&!RM&&P.length<45&&Math.random()<.08){Math.random()<.7?petals(1):hearts(1)}
+ P=P.filter(p=>p.y<H+30&&p.y>-40&&p.l<900);
+ for(const p of P){p.l++;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;if(p.t=='c')p.vy+=.25,p.vx*=.99;if(p.t=='p')p.x+=Math.sin(p.l/30)*.6;
+  cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.fillStyle=p.c;cx.globalAlpha=p.t=='h'?.55:.85;
+  if(p.t=='c')cx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);else if(p.t=='p'){cx.beginPath();cx.ellipse(0,0,p.r,p.r/2,0,0,7);cx.fillStyle='#f4a9bf';cx.fill()}else{cx.fillStyle='#e77a9b';heartPath(p.r)}
+  cx.restore()}
+ requestAnimationFrame(loop)}loop();
+/* countdown */
+const cd=$('#cd');function pad(n){return String(n).padStart(2,'0')}
+let unlocked=false;
+function tick(){const d=TARGET-Date.now();
+ if(d<=0&&!unlocked||preview&&!unlocked){unlock(Date.now()-TARGET<5000||d>0&&false);return}
+ if(unlocked)return;
+ const s=Math.floor(d/1000);const v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60],l=['days','hrs','min','sec'];
+ cd.innerHTML=v.map((x,i)=>`<div><b>${pad(x)}</b><small>${l[i]}</small></div>`).join('')}
+setInterval(tick,250);tick();
+function unlock(live){unlocked=true;const lk=$('#lock');
+ const show=()=>{lk.style.display='none';$('#stage').style.display='block';$('#mp').style.display='flex';window.scrollTo(0,0);
+  burst(160);setTimeout(()=>burst(100),700);petals(20);hearts(10);amb=true;setTimeout(()=>{P.length&&0},0);typeLine()};
+ if(live!==false&&!preview){lk.style.opacity=0;petals(30);setTimeout(show,2000)}else show()}
+function typeLine(){const t="Bushesssss, I made a little world just for you… 🌸",e=$('#pre');let i=0;const f=()=>{if(i<=t.length){e.textContent=t.slice(0,i++);setTimeout(f,RM?0:45)}};f()}
+/* cake */
+const cn=$('#cn');[105,150,195].forEach(x=>{cn.innerHTML+=`<rect x="${x-4}" y="112" width="8" height="38" rx="3" fill="#fff" stroke="#e8b4c2"/><g class="flame"><ellipse cx="${x}" cy="102" rx="6" ry="11" fill="#ffc94d"/><ellipse cx="${x}" cy="105" rx="3" ry="6" fill="#fff4c4"/></g><path class="smoke" d="M${x} 108q-6-10 0-20t0-18" stroke="#bbb" fill="none" stroke-width="3" stroke-linecap="round"/>`});
+let blown=false;
+function blow(){if(blown)return;blown=true;$('#cake').classList.add('out');$('#hint').textContent='Make a wish, Bushesssss… 🤍';burst(200);setTimeout(()=>{$('#go').style.display='inline-block'},1200)}
+$('#cake').addEventListener('click',blow);
+$('#go').addEventListener('click',()=>{build();$('#main').style.display='block';setTimeout(()=>$('#main').scrollIntoView({behavior:'smooth'}),50)});
+let built=false;
+function build(){if(built)return;built=true;$('#mainc').appendChild($('#tpl').content.cloneNode(true));
+ $('#gal').innerHTML=photos.map(p=>`<figure class="pol" style="margin:0"><div class="ph">${p.image?`<img src="${p.image}" alt="${p.caption}" loading="lazy">`:'📷<br>Photo yahan aayegi'}</div><p>${p.caption}</p></figure>`).join('');
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+ document.querySelectorAll('.rv').forEach(el=>io.observe(el))}
+/* music */
+const au=$('#au'),mp=$('#mp');if(AUDIO_SRC)au.src=AUDIO_SRC;
+mp.addEventListener('click',()=>{if(!AUDIO_SRC){alert('Audio file abhi add nahi hui — AUDIO_SRC mein song ka path daal dein.');return}
+ if(au.paused){au.play();mp.classList.add('playing');$('#pi').textContent='❚❚'}else{au.pause();mp.classList.remove('playing');$('#pi').textContent='▶'}});
+</script>
+</body></html>
